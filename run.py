@@ -1,5 +1,6 @@
 #!/bin/env python
 import gtk,os,gobject
+import sys
 class spy(gtk.Window):
 	def __init__(self):
 		super(spy,self).__init__()
@@ -17,6 +18,7 @@ class spy(gtk.Window):
 		self.show_all()
 		gobject.timeout_add(10,self.update)
 	def update(self):
+		#os.system("./screenshot.jar -l -d spy.png>/dev/null")
 		os.system("./screenshot.jar -d spy.png>/dev/null")
 		self.image.set_from_file("spy.png")
 		gobject.timeout_add(10,self.update)
